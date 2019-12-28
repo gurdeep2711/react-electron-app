@@ -32,7 +32,7 @@ export default class VideoPlayer extends PureComponent<VideoPlayerProps> {
         <video ref={(ref) => this.videoRef = ref} className="video" onEnded={() => this.setState({ isPlaying: false })}>
           <source src={this.props.url} type="video/mp4" />
         </video>
-        <div className="video-btn-container">
+        <div className="btn-container center">
           <button onClick={() => this.onClick()}>{btnText}</button>
         </div>
       </div >

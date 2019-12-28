@@ -19,26 +19,35 @@ export default class Topics extends PureComponent {
     this.setState({ selectedTopic: topic.id })
   }
 
+  onTestStart(): void {
+
+  }
+
   render() {
     return (
-      <div className="table">
-        <div className="table-header">
-          <div className="table-cell" style={{ maxWidth: '80px' }}>S NO.</div>
-          <div className="table-cell">Topic Name</div>
-          <div className="table-cell">Description</div>
+      <>
+        <div className="table">
+          <div className="table-header">
+            <div className="table-cell" style={{ maxWidth: '80px' }}>S NO.</div>
+            <div className="table-cell">Topic Name</div>
+            <div className="table-cell">Description</div>
+          </div>
+          {
+            this.TOPIC_LIST.map((topic: topic) => {
+              return (
+                <div className={`table-body boder-bottom ${this.state.selectedTopic === topic.id ? `topic-selected` : ''}`} key={topic.id} onClick={() => this.onTopicClick(topic)}>
+                  <div className="table-cell" style={{ maxWidth: '80px' }}> {topic.id}. </div>
+                  <div className="table-cell"> {topic.heading} </div>
+                  <div className="table-cell"> {topic.desc} </div>
+                </div>
+              )
+            })
+          }
         </div>
-        {
-          this.TOPIC_LIST.map((topic: topic) => {
-            return (
-              <div className={`table-body boder-bottom ${this.state.selectedTopic === topic.id ? `topic-selected` : ''}`} key={topic.id} onClick={() => this.onTopicClick(topic)}>
-                <div className="table-cell" style={{ maxWidth: '80px' }}> {topic.id}. </div>
-                <div className="table-cell"> {topic.heading} </div>
-                <div className="table-cell"> {topic.desc} </div>
-              </div>
-            )
-          })
-        }
-      </div>
+        <div className="btn-container center">
+          <button disabled={!this.state.selectedTopic ? true : false} onClick={() => this.onTestStart()}>Start Test</button>
+        </div>
+      </>
     );
   };
 }
