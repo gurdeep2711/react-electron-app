@@ -1,26 +1,23 @@
 import React, { PureComponent } from 'react';
 import './Topics.css';
-import { TOPIC_LIST } from '../../Models/Topics';
+import { TOPIC_LIST, Topic } from '../../Models/Topics';
 
-interface topic {
-  id: number;
-  heading: string;
-  desc: string;
+interface TopicsProps {
+  onTestStartEmit: Function;
 }
 
-export default class Topics extends PureComponent {
+export default class Topics extends PureComponent<TopicsProps> {
   state = {
-    selectedTopic: null
+    selectedTopic: {} as Topic
   }
   TOPIC_LIST = TOPIC_LIST;
 
-  onTopicClick(topic: topic): void {
-    console.log(topic);
-    this.setState({ selectedTopic: topic.id })
+  onTopicClick(topic: Topic): void {
+    this.setState({ selectedTopic: topic })
   }
 
   onTestStart(): void {
-
+    this.props.onTestStartEmit(this.state.selectedTopic);
   }
 
   render() {
@@ -33,9 +30,9 @@ export default class Topics extends PureComponent {
             <div className="table-cell">Description</div>
           </div>
           {
-            this.TOPIC_LIST.map((topic: topic) => {
+            this.TOPIC_LIST.map((topic: Topic) => {
               return (
-                <div className={`table-body boder-bottom ${this.state.selectedTopic === topic.id ? `topic-selected` : ''}`} key={topic.id} onClick={() => this.onTopicClick(topic)}>
+                <div className={`table-body boder-bottom ${this.state.selectedTopic.id === topic.id ? `topic-selected` : ''}`} key={topic.id} onClick={() => this.onTopicClick(topic)}>
                   <div className="table-cell" style={{ maxWidth: '80px' }}> {topic.id}. </div>
                   <div className="table-cell"> {topic.heading} </div>
                   <div className="table-cell"> {topic.desc} </div>
@@ -45,7 +42,7 @@ export default class Topics extends PureComponent {
           }
         </div>
         <div className="btn-container center">
-          <button disabled={!this.state.selectedTopic ? true : false} onClick={() => this.onTestStart()}>Start Test</button>
+          <button disabled={!this.state.selectedTopic.id ? true : false} onClick={() => this.onTestStart()}>Start Test</button>
         </div>
       </>
     );

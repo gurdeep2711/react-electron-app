@@ -1,14 +1,13 @@
 .container {
   display: flex;
-  height: 100vh;
-  width: 100vw;
+  height: 100%;
+  width: 100%;
   background-color: #efefef;
 }
 
 .container .side-menu {
   display: flex;
   flex-direction: column;
-  margin-right: 20px;
   min-width: 25%;
   background-color: #fff;
   padding: 20px 0;

@@ -9,4 +9,10 @@ export const TOPIC_LIST = [
     heading: 'Addition of numbers',
     desc: 'descriprtions...'
   }
-] as any;
+];
+
+export interface Topic {
+  id: number;
+  heading: string;
+  desc: string;
+}

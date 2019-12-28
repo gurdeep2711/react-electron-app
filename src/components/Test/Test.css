@@ -1,0 +1,72 @@
+.test-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding-top: 50px;
+}
+
+.test-timer-counter-container {
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: auto;
+}
+
+.test-timer-counter-container div {
+  font-size: 18px;
+  font-weight: bold;
+  background-color: #eeffff;
+  color: #444;
+  border: 1px solid #444;
+  padding: 8px 16px;
+  border-radius: 50px;
+  margin-bottom: 10px;
+}
+
+.card-container h2,
+h4 {
+  margin-bottom: 10px;
+}
+
+.test-option-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.test-option-container .test-option {
+  margin-bottom: 20px;
+  max-width: calc(50% - 20px);
+  width: 100%;
+  text-align: center;
+  border: 2px solid #444;
+  padding: 16px;
+  border-radius: 16px;
+  background-color: #fff;
+  text-transform: uppercase;
+  font-size: 20px;
+  font-weight: bold;
+  user-select: none;
+  cursor: pointer;
+  transform: scale(1);
+  transition: transform 150ms cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.test-option-container .test-option.selected {
+  background-color: #444 !important;
+  color: #fff !important;
+}
+
+.test-option-container .test-option:hover {
+  background-color: #f5f5f5;
+}
+
+.test-option-container .test-option:active {
+  transform: scale(0.95);
+  background-color: #444;
+  color: #fff;
+}

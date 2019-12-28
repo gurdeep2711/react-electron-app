@@ -15,6 +15,10 @@
   cursor: auto !important;
 }
 
+.table-header .table-cell {
+  color: #fff;
+}
+
 .table-header,
 .table-body {
   min-height: 40px;
