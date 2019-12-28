@@ -56,9 +56,9 @@
     "eject": "react-scripts eject",
     "run-dev": "concurrently \"BROWSER=none yarn start\" \"wait-on http://localhost:3000 && electron .\"",
     "postinstall": "electron-builder install-app-deps",
-    "build-pack-mac": "yarn build && electron-builder",
-    "build-pack-win": "yarn build && electron-builder -w",
-    "build-pack-linux": "yarn build && electron-builder -l"
+    "build-mac": "yarn build && electron-builder",
+    "build-win": "yarn build && electron-builder -w",
+    "build-linux": "yarn build && electron-builder -l"
   },
   "eslintConfig": {
     "extends": "react-app"
