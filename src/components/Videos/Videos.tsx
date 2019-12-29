@@ -4,7 +4,7 @@ import { VIDEO } from '../../Models/General';
 
 const Videos = () => {
   return (
-    <VideoPlayer url={VIDEO.url} />
+    <VideoPlayer title={VIDEO.title} description={VIDEO.description} url={VIDEO.url} />
   )
 }
 

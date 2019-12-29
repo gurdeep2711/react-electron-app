@@ -3,6 +3,8 @@ import './VideoPlayer.css';
 
 interface VideoPlayerProps {
   url: any;
+  title: string,
+  description: string
 }
 
 export default class VideoPlayer extends PureComponent<VideoPlayerProps> {
@@ -29,6 +31,8 @@ export default class VideoPlayer extends PureComponent<VideoPlayerProps> {
     }
     return (
       <div className="video-container">
+        <h2>{this.props.title}</h2>
+        <h4>{this.props.description}</h4>
         <video ref={(ref) => this.videoRef = ref} className="video" onEnded={() => this.setState({ isPlaying: false })}>
           <source src={this.props.url} type="video/mp4" />
         </video>
