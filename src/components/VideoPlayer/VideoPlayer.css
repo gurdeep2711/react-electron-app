@@ -5,6 +5,12 @@
   height: auto;
   width: 100%;
   padding: 20px 0;
+  text-align: center;
+  color: #444444;
+}
+
+.video-container.dark {
+  color: #ffffff;
 }
 
 .video {

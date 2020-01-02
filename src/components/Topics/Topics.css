@@ -7,18 +7,6 @@
   border-radius: 4px;
 }
 
-.table-header {
-  background-color: #444 !important;
-  color: #fff !important;
-  font-weight: bold !important;
-  min-height: 50px !important;
-  cursor: auto !important;
-}
-
-.table-header .table-cell {
-  color: #fff;
-}
-
 .table-header,
 .table-body {
   min-height: 40px;
@@ -31,6 +19,22 @@
   transition: all 150ms ease-out;
   cursor: pointer;
   user-select: none;
+}
+
+.table-header {
+  background-color: #444;
+  color: #fff;
+  font-weight: bold;
+  min-height: 50px;
+  cursor: auto;
+}
+
+.table-header.dark {
+  background-color: #7d7b7b !important;
+}
+
+.table-header .table-cell {
+  color: #fff;
 }
 
 .table-body:hover {

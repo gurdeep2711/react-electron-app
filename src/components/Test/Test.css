@@ -46,7 +46,6 @@ h4 {
   border: 2px solid #444;
   padding: 16px;
   border-radius: 16px;
-  background-color: #fff;
   text-transform: uppercase;
   font-size: 20px;
   font-weight: bold;
@@ -63,6 +62,10 @@ h4 {
 
 .test-option-container .test-option:hover {
   background-color: #f5f5f5;
+}
+
+.test-option-container.dark .test-option:hover {
+  background-color: #5f5d5d;
 }
 
 .test-option-container .test-option:active {

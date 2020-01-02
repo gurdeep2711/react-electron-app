@@ -3,6 +3,7 @@ import Topics from '../Topics/Topics';
 import { Topic } from '../../Models/Topics';
 import { QUESTIONS } from '../../Models/Questions';
 import Test from '../Test/Test';
+import { ThemeContext } from '../../providers/theme';
 
 export default class Quizes extends PureComponent {
 
@@ -40,20 +41,24 @@ export default class Quizes extends PureComponent {
         }
         {
           this.state.STATE === 'result' ? (
-            <>
-              <div className="card-container">
-                <h1>Test Result:</h1>
-                <h3>Total Questions: {this.testScore.total}</h3>
-                <h3>Correct: {this.testScore.correct}</h3>
-                <h3>Wrong: {this.testScore.wrong}</h3>
-              </div>
+            <ThemeContext.Consumer>
+              {({ currentTheme }) => {
+                return <>
+                  <div className={`card-container ${currentTheme}`}>
+                    <h1>Test Result:</h1>
+                    <h3>Total Questions: {this.testScore.total}</h3>
+                    <h3>Correct: {this.testScore.correct}</h3>
+                    <h3>Wrong: {this.testScore.wrong}</h3>
+                  </div>
 
-              <div className="btn-container center">
-                <button onClick={() => this.retake()}>
-                  Retake Test
-                </button>
-              </div>
-            </>
+                  <div className="btn-container center">
+                    <button className={currentTheme} onClick={() => this.retake()}>
+                      Retake Test
+                    </button>
+                  </div>
+                </>
+              }}
+            </ThemeContext.Consumer>
           ) : null
         }
       </>

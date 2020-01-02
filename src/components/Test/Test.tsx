@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import './Test.css';
 import { Question } from '../../Models/Questions';
+import { ThemeContext } from '../../providers/theme';
 
 interface TestProp {
   questionsList: any,
@@ -80,41 +81,45 @@ export default class Test extends PureComponent<TestProp> {
 
   render() {
     return (
-      <>
-        <div className="test-container">
-          <div className="test-timer-counter-container">
-            <div>Questions: {this.state.currQuesCounter}/{this.QUESTIONS_LIST.length}</div>
-            <div>Timer: {this.state.timer}s</div>
-          </div>
-          <div className="card-container">
-            <h2>{this.state.currQuestion.caption}</h2>
-            <h4>{this.state.currQuestion.question}</h4>
-            {this.state.currQuestion.options ?
-              (
-                <div className="test-option-container">
-                  {
-                    this.state.currQuestion.options.map((option) => {
-                      return (
-                        <div className={`test-option ${this.state.selectedAnswer.indexOf(option) !== -1 ? 'selected' : ''}`}
-                          key={option}
-                          onClick={() => this.onOptionClick(option)}>
-                          {option}
-                        </div>
-                      )
-                    })
-                  }
-                </div>
-              ) : null}
-          </div>
-        </div>
+      <ThemeContext.Consumer>
+        {({ currentTheme }) => {
+          return <>
+            <div className={`test-container ${currentTheme}`}>
+              <div className="test-timer-counter-container">
+                <div>Questions: {this.state.currQuesCounter}/{this.QUESTIONS_LIST.length}</div>
+                <div>Timer: {this.state.timer}s</div>
+              </div>
+              <div className={`card-container ${currentTheme}`}>
+                <h2>{this.state.currQuestion.caption}</h2>
+                <h4>{this.state.currQuestion.question}</h4>
+                {this.state.currQuestion.options ?
+                  (
+                    <div className={`test-option-container ${currentTheme}`}>
+                      {
+                        this.state.currQuestion.options.map((option) => {
+                          return (
+                            <div className={`test-option ${this.state.selectedAnswer.indexOf(option) !== -1 ? 'selected' : ''}`}
+                              key={option}
+                              onClick={() => this.onOptionClick(option)}>
+                              {option}
+                            </div>
+                          )
+                        })
+                      }
+                    </div>
+                  ) : null}
+              </div>
+            </div>
 
-        <div className="btn-container center">
-          <button disabled={!this.state.selectedAnswer.length ? true : false}
-            onClick={() => this.submitAnswer()}>
-            Submit
+            <div className="btn-container center">
+              <button className={currentTheme} disabled={!this.state.selectedAnswer.length ? true : false}
+                onClick={() => this.submitAnswer()}>
+                Submit
           </button>
-        </div>
-      </>
+            </div>
+          </>
+        }}
+      </ThemeContext.Consumer>
     );
   };
 }
