@@ -1,0 +1,20 @@
+{
+    "banner-1": {
+        "href": "https://www.airtel.in/airtel-thanks-app?icid=hero-banner"
+    },
+    "banner-2": {
+        "href": "https://www.airtel.in/broadband/?icid=hero-banner"
+    },
+    "banner-3": {
+        "href": "https://www.airtel.in/dth/?icid=hero-banner"
+    },
+    "banner-4": {
+        "href": "https://www.airtel.in/myplan-infinity/?icid=hero-banner"
+    },
+    "banner-5": {
+        "href": "https://www.airtel.in/bank/register?utm_source=Internal&utm_medium=Banner&utm_campaign=airtelhome"
+    },
+    "banner-6": {
+        "href": "https://www.airtel.in/business/b2b/work-from-home-solution?utm_source=website&utm_medium=banner&utm_campaign=launch"
+    }
+}
